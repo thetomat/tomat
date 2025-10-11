@@ -1,17 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        em {
-            color: red;
-            font-style: normal;
-        }
-    </style>
-  </head>
-  <body>
-    <p>I love <em>bigfoot!</em></p>
-  </body>
+    <title>Shockwave - Advanced Security Discord Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Icon.png" alt="Shockwave Logo" class="logo-icon">
+                <span>Shockwave</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#commands" class="nav-link">Commands</a></li>
+                <li><a href="https://discord.com/oauth2/authorize?client_id=1421445090945007637" class="nav-link invite-btn" target="_blank">Invite Bot</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Shockwave</span>
+                    <br>Security Discord Bot
+                </h1>
+                <p class="hero-description">
+                    Advanced security Discord bot with AI-powered automod, customizable permissions, 
+                    and comprehensive server protection. Keep your community safe with intelligent moderation.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1421445090945007637" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-discord"></i>
+                        Invite to Server
+                    </a>
+                    <a href="dashboard.html" class="btn btn-secondary">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Servers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Commands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                </div>
+            </div>
+                <div class="hero-visual">
+                <div class="bot-avatar">
+                    <div class="avatar-glow"></div>
+                    <img src="Icon.png" alt="Shockwave Bot Logo" class="bot-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-description">
+                    Discover what makes Shockwave the ultimate Discord bot
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>AI-Powered AutoMod</h3>
+                    <p>Intelligent content filtering with machine learning algorithms that adapt to your server's needs and detect harmful content automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Advanced Security</h3>
+                    <p>Multi-layered security system with anti-raid protection, spam detection, and real-time threat monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Customizable Permissions</h3>
+                    <p>Granular permission system allowing you to customize exactly what the bot can do in different channels and roles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Detailed security reports, moderation statistics, and insights into server safety trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Smart Automation</h3>
+                    <p>Automated responses to threats, smart warning systems, and intelligent escalation protocols.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Advanced Customization</h3>
+                    <p>Deep customization options for filtering rules, response patterns, and security thresholds tailored to your community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Command Categories</h2>
+                <p class="section-description">
+                    Explore the wide range of commands available
+                </p>
+            </div>
+            <div class="commands-grid">
+                <div class="command-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                    <div class="command-list">
+                        <span class="command">!protect</span>
+                        <span class="command">!raidmode</span>
+                        <span class="command">!scan</span>
+                        <span class="command">!threats</span>
+                        <span class="command">!lockdown</span>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3><i class="fas fa-robot"></i> AI AutoMod</h3>
+                    <div class="command-list">
+                        <span class="command">!automod</span>
+                        <span class="command">!filter</span>
+                        <span class="command">!learn</span>
+                        <span class="command">!patterns</span>
+                        <span class="command">!analyze</span>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3><i class="fas fa-user-cog"></i> Permissions</h3>
+                    <div class="command-list">
+                        <span class="command">!permissions</span>
+                        <span class="command">!roles</span>
+                        <span class="command">!channels</span>
+                        <span class="command">!access</span>
+                        <span class="command">!restrict</span>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3><i class="fas fa-chart-bar"></i> Analytics</h3>
+                    <div class="command-list">
+                        <span class="command">!stats</span>
+                        <span class="command">!reports</span>
+                        <span class="command">!logs</span>
+                        <span class="command">!activity</span>
+                        <span class="command">!insights</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invite Section -->
+    <section id="invite" class="invite">
+        <div class="container">
+            <div class="invite-content">
+                <h2>Ready to Secure Your Server?</h2>
+                <p>Join thousands of servers already protected by Shockwave. Invite the bot today and experience advanced AI-powered security.</p>
+                <a href="https://discord.com/oauth2/authorize?client_id=1421445090945007637" class="btn btn-primary btn-large" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    Invite Shockwave
+                </a>
+                <div class="invite-features">
+                    <div class="invite-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Free to use</span>
+                    </div>
+                    <div class="invite-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Easy setup</span>
+                    </div>
+                    <div class="invite-feature">
+                        <i class="fas fa-check"></i>
+                        <span>24/7 support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Icon.png" alt="Shockwave Logo" class="logo-icon">
+                        <span>Shockwave</span>
+                    </div>
+                    <p>The ultimate security Discord bot for modern servers.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Bot</h4>
+                        <a href="#features">Features</a>
+                        <a href="#commands">Commands</a>
+                        <a href="https://discord.com/oauth2/authorize?client_id=1421445090945007637" target="_blank">Invite</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="https://discord.gg/rp9wsRfGfC" target="_blank">Discord Server</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shockwave Bot. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/rp9wsRfGfC" target="_blank"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
