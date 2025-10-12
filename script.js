@@ -183,11 +183,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Dashboard button functionality
-document.querySelectorAll('.dashboard-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Add any tracking or analytics here if needed
-        console.log('Dashboard link clicked');
-    });
-});

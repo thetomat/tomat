@@ -10,22 +10,38 @@
 </head>
 <body>
     <div class="dashboard-container">
+        <!-- Auth Required State -->
+        <div id="auth-required" class="auth-screen hidden">
+            <div class="auth-content">
+                <div class="logo">
+                    <img src="../ShockwaveIcon.png" alt="Shockwave Logo" class="logo-img">
+                    <div class="logo-text">SHOCKWAVE DASHBOARD</div>
+                </div>
+                <h2>Authentication Required</h2>
+                <p>To access the Shockwave Dashboard, you need to authenticate with Discord.</p>
+                <button id="login-btn" class="cta-button">
+                    <i class="fab fa-discord"></i> Login with Discord
+                </button>
+                <p class="small-text">We only request permissions to identify you and see your servers</p>
+            </div>
+        </div>
+
         <!-- Loading State -->
         <div id="loading" class="loading-screen">
             <div class="loading-content">
                 <div class="spinner"></div>
-                <h2>Authenticating with Discord...</h2>
-                <p>Please wait while we verify your credentials</p>
+                <h2>Loading Dashboard...</h2>
+                <p>Please wait while we fetch your server information</p>
             </div>
         </div>
 
-        <!-- Auth Error State -->
-        <div id="auth-error" class="error-screen hidden">
+        <!-- Error Screen -->
+        <div id="error-screen" class="error-screen hidden">
             <div class="error-content">
                 <i class="fas fa-exclamation-triangle error-icon"></i>
-                <h2>Authentication Failed</h2>
-                <p>There was an error authenticating with Discord. Please try again.</p>
-                <button id="retry-auth" class="cta-button">Retry Authentication</button>
+                <h2>Authentication Error</h2>
+                <p id="error-message">An error occurred during authentication.</p>
+                <button id="retry-btn" class="cta-button">Try Again</button>
             </div>
         </div>
 
