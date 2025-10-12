@@ -18,43 +18,56 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Discord OAuth Configuration
     const CLIENT_ID = '1421445090945007637';
-    const REDIRECT_URI = encodeURIComponent(window.location.origin + window.location.pathname);
+    const REDIRECT_URI = encodeURIComponent('https://tomat.nl/dashboard'); // CHANGE TO YOUR ACTUAL URL
     const SCOPES = 'identify%20guilds';
     const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}`;
     
     // Backend URL (CHANGE THIS TO YOUR RENDER URL)
     const BACKEND_URL = 'https://backend-tk3p.onrender.com'; // UPDATE THIS
     
-    // Check for user data in URL parameters
+    // Check for user data or errors in URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const userDataParam = urlParams.get('user');
     const errorParam = urlParams.get('error');
+    const codeParam = urlParams.get('code');
     
     // Initialize dashboard
     function initDashboard() {
+        // Handle errors first
         if (errorParam) {
             showError(`Authentication failed: ${errorParam}`);
             return;
         }
         
+        // Handle user data from backend redirect
         if (userDataParam) {
             try {
                 const userData = JSON.parse(decodeURIComponent(userDataParam));
                 sessionStorage.setItem('shockwave_user', JSON.stringify(userData));
+                // Clean URL
                 window.history.replaceState({}, document.title, window.location.pathname);
                 loadDashboard(userData);
+                return;
             } catch (e) {
                 console.error('Error parsing user data:', e);
                 showAuthScreen();
+                return;
             }
+        }
+        
+        // Handle OAuth code (if someone manually added it)
+        if (codeParam) {
+            // Redirect to backend to exchange code
+            window.location.href = `${BACKEND_URL}/auth/exchange?code=${codeParam}`;
+            return;
+        }
+        
+        // Check if we have stored user data in sessionStorage
+        const userData = sessionStorage.getItem('shockwave_user');
+        if (userData) {
+            loadDashboard(JSON.parse(userData));
         } else {
-            // Check if we have stored user data in sessionStorage
-            const userData = sessionStorage.getItem('shockwave_user');
-            if (userData) {
-                loadDashboard(JSON.parse(userData));
-            } else {
-                showAuthScreen();
-            }
+            showAuthScreen();
         }
     }
     
@@ -97,6 +110,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (!response.ok) {
+                if (response.status === 401) {
+                    // Token expired, show auth screen
+                    sessionStorage.removeItem('shockwave_user');
+                    showAuthScreen();
+                    throw new Error('Authentication expired');
+                }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
@@ -105,18 +124,20 @@ document.addEventListener('DOMContentLoaded', function() {
             displayServers(guilds);
         })
         .catch(error => {
-            console.error('Error loading guilds:', error);
-            serversContainer.innerHTML = `
-                <div class="server-placeholder">
-                    <div class="placeholder-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+            if (error.message !== 'Authentication expired') {
+                console.error('Error loading guilds:', error);
+                serversContainer.innerHTML = `
+                    <div class="server-placeholder">
+                        <div class="placeholder-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <p>Failed to load servers. Please try again later.</p>
+                        <button class="cta-button" style="margin-top: 20px;" onclick="location.reload()">
+                            <i class="fas fa-redo"></i> Retry
+                        </button>
                     </div>
-                    <p>Failed to load servers. Please try again later.</p>
-                    <button class="cta-button" style="margin-top: 20px;" onclick="location.reload()">
-                        <i class="fas fa-redo"></i> Retry
-                    </button>
-                </div>
-            `;
+                `;
+            }
         });
     }
     
