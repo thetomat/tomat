@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shockwave Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Loading State -->
+        <div id="loading" class="loading-screen">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h2>Authenticating with Discord...</h2>
+                <p>Please wait while we verify your credentials</p>
+            </div>
+        </div>
+
+        <!-- Auth Error State -->
+        <div id="auth-error" class="error-screen hidden">
+            <div class="error-content">
+                <i class="fas fa-exclamation-triangle error-icon"></i>
+                <h2>Authentication Failed</h2>
+                <p>There was an error authenticating with Discord. Please try again.</p>
+                <button id="retry-auth" class="cta-button">Retry Authentication</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboard-content" class="hidden">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <img src="../ShockwaveIcon.png" alt="Shockwave Logo" class="logo-img">
+                        <div class="logo-text">SHOCKWAVE DASHBOARD</div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img id="user-avatar" src="" alt="User Avatar">
+                        </div>
+                        <div class="user-details">
+                            <span id="username">Loading...</span>
+                            <span id="user-id" class="user-id">ID: ...</span>
+                        </div>
+                        <button id="logout-btn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <div class="container">
+                    <div class="section-title">
+                        <h1>Your Servers</h1>
+                        <p>Manage Shockwave settings for servers where you have administrative permissions</p>
+                    </div>
+
+                    <div id="servers-container" class="servers-grid">
+                        <!-- Servers will be loaded here -->
+                        <div class="server-placeholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <p>Loading your servers...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-info">
+                            <p>Shockwave Security Dashboard v1.0</p>
+                            <p>© 2023 Shockwave Bot. All rights reserved.</p>
+                        </div>
+                        <div class="footer-links">
+                            <a href="../">Back to Home</a>
+                            <a href="#">Documentation</a>
+                            <a href="#">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
