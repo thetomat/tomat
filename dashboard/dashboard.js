@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 showAuthScreen();
                 return;
             }
+        } else {
+            showAuthScreen();
         }
         
         // Handle OAuth code (if someone manually added it)
@@ -256,3 +258,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the dashboard
     initDashboard();
 });
+
